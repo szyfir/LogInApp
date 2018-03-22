@@ -1,0 +1,106 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top:300px;
+    position:relative;
+    min-height:100px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.head-image
+{
+    background-color:#000000;
+    text-align:center;
+}
+.contact
+{
+    text-align:center;
+    float:left;
+    width:280px;
+    background-color:#000000;
+    font-size:18px;
+    color:white;
+}
+header{
+    height:40px;
+}
+.image
+{
+    margin:5px;
+    width:40px;
+    height:40px;  
+
+}
+.copyright
+{
+    position:absolute;
+    right:0;
+    bottom:0;
+    color:white;
+    font-size:12px;
+    float:right;
+    vertical-align:central;
+}
+
+
+.image:hover
+{
+    transform:scale(1.2);
+}
+
+.foot
+{
+    width:auto;
+    height:auto;
+    background-color:#000000;   
+    
+}
+.test {
+    position: absolute;
+    margin-left:-80px;
+    top:87%;
+    font-size:20px;
+   
+}
+.register
+{
+    margin-top:-20px;
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+}
+fieldset{
+   
+    margin: 8px;
+    border: 1px solid black;
+    padding: 8px;    
+    border-radius: 4px;
+
+
+}
+legend
+{
+    padding:10px;
+    text-align:center;
+    font-size:22px;
+}
+.tb
+{
+    width:300px;
+}
+.labWynik
+{
+    color:red;
+    
+}

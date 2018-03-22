@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LogInApp.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Site.css" rel="stylesheet" type="text/css" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta name="description" content="The description of my page" />
+</head>
+<body onload="odliczanie()">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>  
+            </Scripts>
+
+        </asp:ScriptManager>
+        <script type="text/javascript">
+           
+
+            function odliczanie() {
+                var dzisiaj = new Date();
+
+                var dzien = dzisiaj.getDate();
+                var miesiac = dzisiaj.getMonth() + 1;
+                var rok = dzisiaj.getFullYear();
+
+                var godzina = dzisiaj.getHours();
+                if (godzina < 10) godzina = "0" + godzina;
+
+                var minuta = dzisiaj.getMinutes();
+                if (minuta < 10) minuta = "0" + minuta;
+
+                var sekunda = dzisiaj.getSeconds();
+                if (sekunda < 10) sekunda = "0" + sekunda;
+
+                document.getElementById("zegar").innerHTML =
+                 dzien + "/" + miesiac + "/" + rok + " | " + godzina + ":" + minuta + ":" + sekunda;
+
+                setTimeout("odliczanie()", 1000);
+            }
+
+        </script>
+        <div>
+            <header>
+
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="head-image">
+                        <img src="Images/say-image.png" />
+                    </div>
+                    <div class="container">
+
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="nav-link"><a class="nav-link active" href="Default.aspx">Home</a></li>
+                        </ul>
+                        <asp:Panel ID="login" runat="server">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="Register.aspx"><span class="glyphicon glyphicon-user"></span>Rejestracja</a></li>
+                                <li><a href="LogIn.aspx"><span class="glyphicon glyphicon-log-in"></span>Logowanie</a></li>
+                            </ul>
+                        </asp:Panel>
+                        <asp:Panel ID="loginSucess" runat="server" Visible="false">
+                            
+                            <ul class="nav navbar-nav navbar-right">
+                                <asp:Label runat="server" ID="lbLogout" Text="" class="test"/>
+                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Wyloguj</a></li>
+                            </ul>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </header>
+
+            <asp:ContentPlaceHolder ID="MainBody" runat="server"></asp:ContentPlaceHolder>
+
+            <div class="foot">
+                <div class="container body-content">
+                    <footer class="footer">
+                        <div class="contact">
+                            <p>Kontakt</p>
+                            <img src="/Images/E-Mail-Icon.png" class="image" />
+                            <img src="/Images/Twitter-icon.png" class="image" />
+                            <img src="/Images/yt-icon.png" class="image" />
+                            <a class="fb-link" href="https://www.facebook.com/szymon.firlinger">
+                                <img src="/Images/facebook-icon.jpg" class="image" />
+                            </a>
+
+                        </div>
+                        <div class="copyright">
+                            <p>Szymon Firlinger Wszelkie prawa zastrzeżone</p>
+                            <br />
+                            <div id="zegar"></div>
+                        </div>
+
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+</body>
+</html>
